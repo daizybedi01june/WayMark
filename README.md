@@ -102,6 +102,8 @@ Possible future improvements include:
 
 The project will be developed incrementally and updated throughout the project timeline.
 
+- Basic frontend for landing page completed.
+
 ---
 
 ## Author
