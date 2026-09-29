@@ -32,6 +32,7 @@ function addTask() {
     const dueDate = prompt("Enter due date:");
     const task = new Task(title, selectedPriority, dueDate);
     tasks.push(task);
+    saveTasks();
     renderTasks();
     updatePriorityCounts();
 }
@@ -67,6 +68,7 @@ function renderTasks() {
         button.addEventListener("click", () => {
             const task = tasks.find(task => task.id == button.dataset.id);
             task.toggleComplete();
+            saveTasks();
             renderTasks();
             updatePriorityCounts();
         });
@@ -94,6 +96,28 @@ function updatePriorityCounts() {
 
 document.getElementById("addTaskBtn").addEventListener("click", addTask);
 
+function saveTasks() {
+    localStorage.setItem("waymark_tasks", JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const stored = localStorage.getItem("waymark_tasks");
+    if (stored) {
+        const savedTasks = JSON.parse(stored);
+        savedTasks.forEach(taskData => {
+            const task = new Task(
+                taskData.title,
+                taskData.priority,
+                taskData.dueDate
+            );
+            task.id = taskData.id;
+            task.completed = taskData.completed;
+            tasks.push(task);
+        });
+    }
+}
+
+loadTasks();
 renderTasks();
 updatePriorityCounts();
 

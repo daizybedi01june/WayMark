@@ -103,6 +103,10 @@ Possible future improvements include:
 The project will be developed incrementally and updated throughout the project timeline.
 
 - Basic frontend for landing page completed.
+- Basic frontend for dashboard completed.
+- Task creation with priority implemented.
+- Tasks are stored using browser localStorage.
+- Saved tasks are loaded automatically when the page is refreshed.
 
 ---
 
