@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.combined{
+    display:flex;
+    min-height: 100vh; 
+}
+
+.sidebar{
+    width:250px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.mainpage{
+    flex:1;
+    background-color: rgb(241, 244, 245)
+}
+
+.track{
+    display:flex;
+    margin-top:30px;
+    margin-left:60px;
+    gap:60px;
+}
+
+.taskbox{
+    height:350px;
+    width:650px;
+    background-color: white;
+    margin-top:30px;
+    margin-left:60px;
+    border-radius:5px;
+    border-color: gray;
+    padding-top: 10px; 
+    padding-left:12px; 
+    padding-right:12px;
+    box-shadow: 0 2px 8px #ccc;
+}
+
+.prioritybox {
+    width: 300px;
+    height: 350px;
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px #ccc;
+}
+
+.priorityboxhead h2 {
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: large;
+    color: rgb(82, 82, 153);
+}
+
+.priority-subtitle {
+    color: gray;
+    font-size: small;
+    margin-bottom: 22px;
+}
+
+.priority-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.priority-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: gray;
+}
+
+.priority-dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.high {
+    background-color: rgb(230, 100, 100);
+}
+
+.medium {
+    background-color: rgb(230, 190, 80);
+}
+
+.low {
+    background-color: lightgreen;
+}
+
+.priority-count {
+    font-weight: bold;
+    color: rgb(82, 82, 153);
+}
+
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        width: 200px;
+    }
+    .mainpage > div:first-child {
+        margin-left: 25px !important;
+    }
+    .track {
+        margin-left: 25px;
+        margin-right: 25px;
+        gap: 15px;
+    }
+    .track > div {
+        width: 200px !important;
+    }
+    .mainpage > div:last-child {
+        flex-direction: column;
+    }
+    .taskbox {
+        width: 90%;
+        margin-left: 25px;
+    }
+    .prioritybox {
+        width: 90%;
+        margin-left: 25px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .sidebar {
+        width: 180px;
+    }
+    .mainpage {
+        width: calc(100% - 180px);
+    }
+    .mainpage > div:first-child {
+        margin-top: 30px !important;
+        margin-left: 25px !important;
+        margin-right: 20px;
+    }
+    .mainpage h1 {
+        font-size: 24px;
+    }
+    .track {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-left: 25px;
+        margin-right: 20px;
+    }
+    .track > div {
+        width: 150px !important;
+        height: 80px !important;
+    }
+    .mainpage > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .taskbox {
+        width: calc(100% - 50px);
+        height: 320px;
+        margin-left: 25px;
+        margin-top: 20px;
+    }
+    .prioritybox {
+        width: calc(100% - 50px);
+        margin-left: 25px;
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .combined {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+    .mainpage {
+        width: 100%;
+    }
+    .mainpage > div:first-child {
+        margin-left: 20px !important;
+        margin-right: 20px;
+    }
+    .mainpage h1 {
+        font-size: 22px;
+    }
+    .track {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .track > div {
+        width: 48% !important;
+        height: 90px !important;
+    }
+    .mainpage > div:last-child {
+        flex-direction: column;
+    }
+    .taskbox {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 350px;
+    }
+    .prioritybox {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mainpage h1 {
+        font-size: 19px;
+    }
+    .track {
+        flex-direction: column;
+    }
+    .track > div {
+        width: 100% !important;
+    }
+    .taskbox {
+        width: calc(100% - 30px);
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .workspace {
+        margin-left: 15px;
+    }
+    .prioritybox {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 350px;
+    }
+}
+
+
