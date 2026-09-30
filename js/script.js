@@ -59,9 +59,14 @@ function renderTasks() {
                     ${task.dueDate}
                 </small>
             </div>
-            <button class="completeBtn" data-id="${task.id}" style="border-radius:4px;">
-                ${task.completed ? "↩" : "✓"}
-            </button>`;
+            <div style="display:flex; gap:5px;">
+                <button class="completeBtn" data-id="${task.id}" style="border-radius:4px; width:30px; height:30px; padding:0; margin:0; box-sizing:border-box;">
+                    ${task.completed ? "↩" : "✓"}
+                </button>
+                <button class="deleteBtn" data-id="${task.id}" style="border-radius:4px; width:30px; height:30px; padding:0; margin:0; box-sizing:border-box;">
+                    X
+                </button>
+            </div>`;
         container.appendChild(row);
     }
     document.querySelectorAll(".completeBtn").forEach(button => {
@@ -71,6 +76,20 @@ function renderTasks() {
             saveTasks();
             renderTasks();
             updatePriorityCounts();
+        });
+    });
+    document.querySelectorAll(".deleteBtn").forEach(button => {
+        button.addEventListener("click", () => {
+            const taskId = button.dataset.id;
+            const taskIndex = tasks.findIndex(
+                task => task.id == taskId
+            );
+            if (taskIndex !== -1) {
+                tasks.splice(taskIndex, 1);
+                saveTasks();
+                renderTasks();
+                updatePriorityCounts();
+            }
         });
     });
 }
@@ -117,7 +136,28 @@ function loadTasks() {
     }
 }
 
+function loadQuoteXHR() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://motivational-spark-api.vercel.app/api/quotes/random', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            const subtitle = document.querySelector('.mainpage p[style*="gray"]');
+            if (subtitle) subtitle.textContent = `"${data.quote}"`;
+        }
+    };
+    xhr.onerror = function () {
+    console.log("XHR failed");
+    console.log("readyState:", xhr.readyState);
+    console.log("status:", xhr.status);
+    };
+    xhr.send();
+}
+
 loadTasks();
 renderTasks();
 updatePriorityCounts();
 
+window.addEventListener("DOMContentLoaded", function () {
+    loadQuoteXHR();
+});
