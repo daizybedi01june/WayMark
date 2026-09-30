@@ -12,29 +12,43 @@ Task.prototype.toggleComplete = function() {
 
 const tasks = [];
 
+function showTaskForm() {
+    document.getElementById("taskForm").style.display = "block";
+}
+
+function hideTaskForm() {
+    document.getElementById("taskForm").style.display = "none";
+}
+
 function addTask() {
-    const title = prompt("Enter task name:");
-    if (!title) {
+
+    const title = document.getElementById("taskTitle").value;
+    const priority = document.getElementById("taskPriority").value;
+    const dueDate = document.getElementById("taskDueDate").value;
+
+    if (title === "") {
+        alert("Please enter a task name.");
         return;
     }
-    const priority = prompt("Enter priority:\n1. High\n2. Medium\n3. Low");
-    let selectedPriority;
-    if (priority === "1") {
-        selectedPriority = "High";
-    } else if (priority === "2") {
-        selectedPriority = "Medium";
-    } else if (priority === "3") {
-        selectedPriority = "Low";
-    } else {
-        alert("Please enter 1, 2 or 3.");
+
+    if (dueDate === "") {
+        alert("Please select a due date.");
         return;
     }
-    const dueDate = prompt("Enter due date:");
-    const task = new Task(title, selectedPriority, dueDate);
+
+    const task = new Task(title, priority, dueDate);
+
     tasks.push(task);
+
     saveTasks();
     renderTasks();
     updatePriorityCounts();
+
+    document.getElementById("taskTitle").value = "";
+    document.getElementById("taskPriority").value = "High";
+    document.getElementById("taskDueDate").value = "";
+
+    hideTaskForm();
 }
 
 function renderTasks() {
@@ -113,8 +127,6 @@ function updatePriorityCounts() {
     document.getElementById("lowTotal").textContent = lowTasks.length;
 }
 
-document.getElementById("addTaskBtn").addEventListener("click", addTask);
-
 function saveTasks() {
     localStorage.setItem("waymark_tasks", JSON.stringify(tasks));
 }
@@ -154,10 +166,15 @@ function loadQuoteXHR() {
     xhr.send();
 }
 
-loadTasks();
-renderTasks();
-updatePriorityCounts();
-
 window.addEventListener("DOMContentLoaded", function () {
+
+    loadTasks();
+    renderTasks();
+    updatePriorityCounts();
     loadQuoteXHR();
+
+    document.getElementById("addTaskBtn").addEventListener("click", showTaskForm);
+    document.getElementById("saveTaskBtn").addEventListener("click", addTask);
+    document.getElementById("cancelTaskBtn").addEventListener("click", hideTaskForm);
+
 });

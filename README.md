@@ -107,6 +107,8 @@ The project will be developed incrementally and updated throughout the project t
 - Task creation with priority implemented.
 - Tasks are stored using browser localStorage.
 - Saved tasks are loaded automatically when the page is refreshed.
+- Added dynamic motivational quotes using XMLHttpRequest.
+- Added a Calendar page to select a date and view upcoming tasks planned for that date.
 
 ---
 
