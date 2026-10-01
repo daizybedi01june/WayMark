@@ -109,6 +109,8 @@ The project will be developed incrementally and updated throughout the project t
 - Saved tasks are loaded automatically when the page is refreshed.
 - Added dynamic motivational quotes using XMLHttpRequest.
 - Added a Calendar page to select a date and view upcoming tasks planned for that date.
+- Added a notes section where users can create and delete notes using a simple form.
+- Used a Web Worker to process notes in the background without blocking the main page.
 
 ---
 
