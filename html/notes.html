@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WayMark - Notes</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="combined">
+        <div class="sidebar">
+            <div style="margin-top:30px;margin-left:30px;display:flex;align-items:center;gap:10px">
+                <div style="color:white;font-weight:800;border-radius:10px;display:flex;justify-content:center;align-items:center;height:40px;width:40px;background-color:rgb(105,105,197);">
+                    W
+                </div>
+                <p style="font-weight:bolder;">WayMark</p>
+            </div>
+            <div style="margin-top:60px;margin-left:30px;color:gray;">
+                <p style="font-size:x-small;">WORKSPACE</p>
+                <p>⌂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="dashboard.html">Home</a></p>
+                <p>✓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="calendar.html">Calendar</a></p>
+                <p>◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tasks.html">Tasks</a></p>
+                <p>▣&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="notes.html">Notes</a></p>
+            </div>
+            <div style="margin-top:100px;margin-left:30px;color:gray">
+                <p style="font-size:x-small;">PERSONAL</p>
+                <p>⚙&nbsp;&nbsp;&nbsp;&nbsp;Settings</p>
+            </div>
+        </div>
+        <div class="mainpage">
+            <div class="notes-heading">
+                <h1>My Notes</h1>
+                <p>Write down important things you want to remember</p>
+            </div>
+            <div class="notesbox">
+                <div class="notesboxhead">
+                    <div>
+                        <h2>Quick Notes</h2>
+                        <p>Keep your thoughts and ideas here</p>
+                    </div>
+                    <button id="addNoteBtn">+ Add Note</button>
+                </div>
+                <hr>
+                <div id="noteForm" class="note-form" style="display:none;">
+                    <div>
+                        <label>Note Title</label>
+                        <input type="text" id="noteTitle" placeholder="Enter note title">
+                    </div>
+                    <div>
+                        <label>Note</label>
+                        <textarea id="noteContent" placeholder="Write your note here..."></textarea>
+                    </div>
+                    <button id="saveNoteBtn">Save Note</button>
+                    <button id="cancelNoteBtn">Cancel</button>
+                </div>
+                <div id="notesContainer">
+                    <p class="notes-message">No notes added yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/notes.js"></script>
+</body>
+</html>

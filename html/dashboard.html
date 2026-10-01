@@ -27,9 +27,14 @@
             </div>
         </div>
         <div class="mainpage">
-            <div style="margin-top:50px; margin-left:40px; line-height: 5px;">
-                <h1 style="color:rgb(82, 82, 153)">Welcome Back To Your Workspace!</h1>
-                <p style="color:gray">Here's everything you need to focus on today</p>
+            <div style="margin-top:30px; margin-left:40px;">
+                <h1 style="color:rgb(82, 82, 153); margin:0 0 5px 0;">
+                    Welcome Back To Your Workspace!
+                </h1>
+
+                <p style="color:gray; margin:0; line-height:1.4;">
+                    Here's everything you need to focus on!
+                </p>
             </div>
             <div class="track">
                 <div style="height:90px;width: 200px;background-color: white; display:flex; justify-content: center; border-radius: 5px; gap:20px; box-shadow: 0 2px 8px #ccc;">
@@ -62,8 +67,8 @@
                     <div class="taskbox">
                         <div style="line-height: 4px; display:flex;justify-content: space-between;align-items:center">
                             <div>
-                                <p style="font-weight: bolder;font-size: large; color:rgb(82, 82, 153)">My Tasks Today</p>
-                                <p style="color:gray;font-size: small;">Everything you have planned for today</p>
+                                <p style="font-weight: bolder;font-size: large; color:rgb(82, 82, 153)">My Tasks</p>
+                                <p style="color:gray;font-size: small;">Everything you have planned</p>
                             </div>
                             <div>
                                 <button id="addTaskBtn" style="color: rgb(105, 105, 197);border-radius:5px;padding:5px;">+Add Task</button>
@@ -71,27 +76,27 @@
                         </div>
                         <hr>
                         <div id="taskListContainer" style="display: flex; flex-direction:column; gap:8px;">
-                            <div id="noTasksMsg">No Tasks Planned For Today!</div>
+                            <div id="noTasksMsg">No Tasks Planned!</div>
                         </div>
-                        <div id="taskForm" style="display:none; margin-top:15px; padding:15px; border:1px solid #ddd; border-radius:5px;">
-                            <div style="margin-bottom:10px;">
+                        <div id="taskForm" style="display:none; margin-top:10px; padding:10px; border:1px solid #ddd; border-radius:5px;">
+                            <div style="margin-bottom:8px;">
                                 <label>Task Name</label><br>
                                 <input type="text" id="taskTitle" placeholder="Enter task name" style="width:100%; padding:8px; margin-top:5px;">
                             </div>
-                            <div style="margin-bottom:10px;">
+                            <div style="margin-bottom:8px;">
                                 <label>Priority</label><br>
-                                <select id="taskPriority" style="width:100%; padding:8px; margin-top:5px;">
+                                <select id="taskPriority" style="width:100%; padding:8px; margin-top:4px;">
                                     <option value="High">High</option>
                                     <option value="Medium">Medium</option>
                                     <option value="Low">Low</option>
                                 </select>
                             </div>
-                            <div style="margin-bottom:10px;">
+                            <div style="margin-bottom:8px;">
                                 <label>Due Date</label><br>
                                 <input type="date" id="taskDueDate"
-                                    style="width:100%; padding:8px; margin-top:5px;">
+                                    style="width:100%; padding:8px; margin-top:4px;">
                             </div>
-                            <button id="saveTaskBtn" style="padding:7px 12px; border-radius:5px;">
+                            <button id="saveTaskBtn" style="padding:6px 12px; border-radius:5px;">
                                 Add Task
                             </button>
                             <button id="cancelTaskBtn" style="padding:7px 12px; border-radius:5px; margin-left:5px;">

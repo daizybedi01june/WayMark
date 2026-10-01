@@ -55,7 +55,7 @@ function renderTasks() {
     const container = document.getElementById("taskListContainer");
     container.innerHTML = "";
     if (tasks.length === 0) {
-        container.innerHTML = `<div id="noTasksMsg">No Tasks Planned For Today!</div>`;
+        container.innerHTML = `<div id="noTasksMsg">No Tasks Planned!</div>`;
         return;
     }
     for (const task of tasks) {
