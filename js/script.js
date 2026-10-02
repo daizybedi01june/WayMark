@@ -21,33 +21,26 @@ function hideTaskForm() {
 }
 
 function addTask() {
-
     const title = document.getElementById("taskTitle").value;
     const priority = document.getElementById("taskPriority").value;
     const dueDate = document.getElementById("taskDueDate").value;
-
     if (title === "") {
         alert("Please enter a task name.");
         return;
     }
-
     if (dueDate === "") {
         alert("Please select a due date.");
         return;
     }
-
     const task = new Task(title, priority, dueDate);
-
     tasks.push(task);
-
     saveTasks();
     renderTasks();
     updatePriorityCounts();
-
+    updateDashboardCards();
     document.getElementById("taskTitle").value = "";
     document.getElementById("taskPriority").value = "High";
     document.getElementById("taskDueDate").value = "";
-
     hideTaskForm();
 }
 
@@ -90,6 +83,7 @@ function renderTasks() {
             saveTasks();
             renderTasks();
             updatePriorityCounts();
+            updateDashboardCards();
         });
     });
     document.querySelectorAll(".deleteBtn").forEach(button => {
@@ -103,6 +97,7 @@ function renderTasks() {
                 saveTasks();
                 renderTasks();
                 updatePriorityCounts();
+                updateDashboardCards();
             }
         });
     });
@@ -125,6 +120,25 @@ function updatePriorityCounts() {
 
     document.getElementById("lowCompleted").textContent = lowCompleted.length;
     document.getElementById("lowTotal").textContent = lowTasks.length;
+}
+
+function updateDashboardCards() {
+    const totalTasks = tasks.length;
+    const completedTasks = tasks.filter(function(task) {
+        return task.completed;
+    }).length;
+    const inProgressTasks = tasks.filter(function(task) {
+        return !task.completed;
+    }).length;
+    const today = new Date().toISOString().split("T")[0];
+    const dueTasks = tasks.filter(function(task) {
+        return task.dueDate === today && !task.completed;
+    }).length;
+
+    document.getElementById("dashboardTotalTasks").textContent = totalTasks;
+    document.getElementById("dashboardPendingTasks").textContent = inProgressTasks;
+    document.getElementById("dashboardCompletedTasks").textContent = completedTasks;
+    document.getElementById("dashboardDueTasks").textContent = dueTasks;
 }
 
 function saveTasks() {
@@ -171,6 +185,7 @@ window.addEventListener("DOMContentLoaded", function () {
     loadTasks();
     renderTasks();
     updatePriorityCounts();
+    updateDashboardCards();
     loadQuoteXHR();
 
     document.getElementById("addTaskBtn").addEventListener("click", showTaskForm);

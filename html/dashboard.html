@@ -9,83 +9,89 @@
 <body>
     <div class="combined">
         <div class="sidebar">
-            <div style=" margin-top:30px;margin-left:30px;display:flex;align-items:center;gap:10px">
-                <div style="color: white; font-weight: 800; border-radius: 10px;display: flex;justify-content: center;align-items: center;
-                height:40px; width:40px; background-color:rgb(105, 105, 197);">W</div>
-                <p style="font-weight: bolder;">WayMark</p>
+            <div style="margin-top:30px;margin-left:30px;display:flex;align-items:center;gap:10px">
+                <div style="color:white;font-weight:800;border-radius:10px;display:flex;justify-content:center;align-items:center;height:40px;width:40px;background-color:rgb(105,105,197);">W</div>
+                <p style="font-weight:bolder;">WayMark</p>
             </div>
-            <div style="margin-top:60px; margin-left:30px; color:gray;">
-                <p style="font-size: x-small;">WORKSPACE
+            <div style="margin-top:60px;margin-left:30px;color:gray;">
+                <p style="font-size:x-small;">WORKSPACE</p>
                 <p>⌂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="dashboard.html">Home</a></p>
                 <p>✓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="calendar.html">Calendar</a></p>
                 <p>◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tasks.html">Tasks</a></p>
                 <p>▣&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="notes.html">Notes</a></p>
             </div>
-            <div style="margin-top:100px; margin-left:30px; color:gray">
-                <p style="font-size: x-small;">PERSONAL
+            <div style="margin-top:100px;margin-left:30px;color:gray">
+                <p style="font-size:x-small;">PERSONAL</p>
                 <p>⚙&nbsp;&nbsp;&nbsp;&nbsp;Settings</p>
             </div>
         </div>
         <div class="mainpage">
-            <div style="margin-top:30px; margin-left:40px;">
-                <h1 style="color:rgb(82, 82, 153); margin:0 0 5px 0;">
-                    Welcome Back To Your Workspace!
-                </h1>
-
-                <p style="color:gray; margin:0; line-height:1.4;">
-                    Here's everything you need to focus on!
-                </p>
+            <div style="margin-top:30px;margin-left:40px;">
+                <h1 style="color:rgb(82,82,153);margin:0 0 5px 0;">Welcome Back To Your Workspace!</h1>
+                <p style="color:gray;margin:0;line-height:1.4;">Here's everything you need to focus on!</p>
             </div>
             <div class="track">
-                <div style="height:90px;width: 200px;background-color: white; display:flex; justify-content: center; border-radius: 5px; gap:20px; box-shadow: 0 2px 8px #ccc;">
-                    <div style="display:flex; align-items:center">
-                        <div style="height:50px;width:50px;background-color: lightgreen; border-radius: 5px; display:flex; justify-content: center; align-items:center;">✓</div>
+                <div class="dashboard-card" onclick="window.location.href='tasks.html?filter=all'" style="height:90px;width:200px;background-color:white;display:flex;justify-content:center;border-radius:5px;gap:20px;box-shadow:0 2px 8px #ccc;cursor:pointer;">
+                    <div style="display:flex;align-items:center">
+                        <div style="height:50px;width:50px;background-color:lightgreen;border-radius:5px;display:flex;justify-content:center;align-items:center;">✓</div>
                     </div>
-                    <p style="margin-top:10px; color:gray">My Tasks</p>
+                    <div>
+                        <p style="margin-top:10px;color:gray;">My Tasks</p>
+                        <p id="dashboardTotalTasks" style="margin-top:0;font-weight:bold;">0</p>
+                    </div>
                 </div>
-                <div style="height:90px;width: 200px;background-color: white; display:flex; justify-content: center; border-radius: 5px; gap:20px; box-shadow: 0 2px 8px #ccc;">
-                    <div style="display:flex; align-items:center">
-                        <div style="height:50px;width:50px;background-color: rgb(201, 184, 201); border-radius: 5px; display:flex; justify-content: center; align-items:center;">◷</div>
+                <div class="dashboard-card" onclick="window.location.href='tasks.html?filter=pending'" style="height:90px;width:200px;background-color:white;display:flex;justify-content:center;border-radius:5px;gap:20px;box-shadow:0 2px 8px #ccc;cursor:pointer;">
+                    <div style="display:flex;align-items:center">
+                        <div style="height:50px;width:50px;background-color:rgb(201,184,201);border-radius:5px;display:flex;justify-content:center;align-items:center;">◷</div>
                     </div>
-                    <p style="margin-top:10px; color:gray">In Progress</p>
+                    <div>
+                        <p style="margin-top:10px;color:gray;">In Progress</p>
+                        <p id="dashboardPendingTasks" style="margin-top:0;font-weight:bold;">0</p>
+                    </div>
                 </div>
-                <div style="height:90px;width: 200px;background-color: white; display:flex; justify-content: center; border-radius: 5px; gap:20px; box-shadow: 0 2px 8px #ccc;">
-                    <div style="display:flex; align-items:center">
-                        <div style="height:50px;width:50px;background-color: rgb(240, 205, 211); border-radius: 5px; display:flex; justify-content: center; align-items:center;">✓</div>
+                <div class="dashboard-card" onclick="window.location.href='tasks.html?filter=completed'" style="height:90px;width:200px;background-color:white;display:flex;justify-content:center;border-radius:5px;gap:20px;box-shadow:0 2px 8px #ccc;cursor:pointer;">
+                    <div style="display:flex;align-items:center">
+                        <div style="height:50px;width:50px;background-color:rgb(240,205,211);border-radius:5px;display:flex;justify-content:center;align-items:center;">✓</div>
                     </div>
-                    <p style="margin-top:10px; color:gray">Completed</p>
+                    <div>
+                        <p style="margin-top:10px;color:gray;">Completed</p>
+                        <p id="dashboardCompletedTasks" style="margin-top:0;font-weight:bold;">0</p>
+                    </div>
                 </div>
-                <div style="height:90px;width: 200px;background-color: white; display:flex; justify-content: center; border-radius: 5px; gap:20px; box-shadow: 0 2px 8px #ccc;">
-                    <div style="display:flex; align-items:center">
-                        <div style="height:50px;width:50px;background-color: rgb(178, 178, 218); border-radius: 5px; display:flex; justify-content: center; align-items:center;">▣</div>
+                <div class="dashboard-card" onclick="window.location.href='tasks.html?filter=due'" style="height:90px;width:200px;background-color:white;display:flex;justify-content:center;border-radius:5px;gap:20px;box-shadow:0 2px 8px #ccc;cursor:pointer;">
+                    <div style="display:flex;align-items:center">
+                        <div style="height:50px;width:50px;background-color:rgb(178,178,218);border-radius:5px;display:flex;justify-content:center;align-items:center;">▣</div>
                     </div>
-                    <p style="margin-top:10px; color:gray">Tasks Due</p>
+                    <div>
+                        <p style="margin-top:10px;color:gray;">Tasks Due</p>
+                        <p id="dashboardDueTasks" style="margin-top:0;font-weight:bold;">0</p>
+                    </div>
                 </div>
             </div>
-            <div style="display:flex; gap:20px;">
+            <div style="display:flex;gap:20px;">
                 <div class="addtasks">
                     <div class="taskbox">
-                        <div style="line-height: 4px; display:flex;justify-content: space-between;align-items:center">
+                        <div style="line-height:4px;display:flex;justify-content:space-between;align-items:center">
                             <div>
-                                <p style="font-weight: bolder;font-size: large; color:rgb(82, 82, 153)">My Tasks</p>
-                                <p style="color:gray;font-size: small;">Everything you have planned</p>
+                                <p style="font-weight:bolder;font-size:large;color:rgb(82,82,153)">My Tasks</p>
+                                <p style="color:gray;font-size:small;">Everything you have planned</p>
                             </div>
                             <div>
-                                <button id="addTaskBtn" style="color: rgb(105, 105, 197);border-radius:5px;padding:5px;">+Add Task</button>
+                                <button id="addTaskBtn" style="color:rgb(105,105,197);border-radius:5px;padding:5px;">+Add Task</button>
                             </div>
                         </div>
                         <hr>
-                        <div id="taskListContainer" style="display: flex; flex-direction:column; gap:8px;">
+                        <div id="taskListContainer" style="display:flex;flex-direction:column;gap:8px;">
                             <div id="noTasksMsg">No Tasks Planned!</div>
                         </div>
-                        <div id="taskForm" style="display:none; margin-top:10px; padding:10px; border:1px solid #ddd; border-radius:5px;">
+                        <div id="taskForm" style="display:none;margin-top:10px;padding:10px;border:1px solid #ddd;border-radius:5px;">
                             <div style="margin-bottom:8px;">
                                 <label>Task Name</label><br>
-                                <input type="text" id="taskTitle" placeholder="Enter task name" style="width:100%; padding:8px; margin-top:5px;">
+                                <input type="text" id="taskTitle" placeholder="Enter task name" style="width:100%;padding:8px;margin-top:5px;">
                             </div>
                             <div style="margin-bottom:8px;">
                                 <label>Priority</label><br>
-                                <select id="taskPriority" style="width:100%; padding:8px; margin-top:4px;">
+                                <select id="taskPriority" style="width:100%;padding:8px;margin-top:4px;">
                                     <option value="High">High</option>
                                     <option value="Medium">Medium</option>
                                     <option value="Low">Low</option>
@@ -93,20 +99,15 @@
                             </div>
                             <div style="margin-bottom:8px;">
                                 <label>Due Date</label><br>
-                                <input type="date" id="taskDueDate"
-                                    style="width:100%; padding:8px; margin-top:4px;">
+                                <input type="date" id="taskDueDate" style="width:100%;padding:8px;margin-top:4px;">
                             </div>
-                            <button id="saveTaskBtn" style="padding:6px 12px; border-radius:5px;">
-                                Add Task
-                            </button>
-                            <button id="cancelTaskBtn" style="padding:7px 12px; border-radius:5px; margin-left:5px;">
-                                Cancel
-                            </button>
+                            <button id="saveTaskBtn" style="padding:6px 12px;border-radius:5px;">Add Task</button>
+                            <button id="cancelTaskBtn" style="padding:7px 12px;border-radius:5px;margin-left:5px;">Cancel</button>
                         </div>
                     </div>
                 </div>
                 <div class="prioritybox">
-                    <div class="priorityboxhead "style="line-height: 4px;">
+                    <div class="priorityboxhead" style="line-height:4px;">
                         <h2>Task Priority</h2>
                         <p class="priority-subtitle">Overview of your task progress</p>
                     </div>
@@ -116,41 +117,35 @@
                             <span class="priority-dot high"></span>
                             <span>High Priority</span>
                         </div>
-
                         <div class="priority-count">
                             <span id="priorityCompleted">0</span> /
                             <span id="priorityTotal">0</span>
                         </div>
                     </div>
-
                     <div class="priority-item">
                         <div class="priority-name">
                             <span class="priority-dot medium"></span>
                             <span>Medium Priority</span>
                         </div>
-
                         <div class="priority-count">
                             <span id="mediumCompleted">0</span> /
                             <span id="mediumTotal">0</span>
                         </div>
                     </div>
-
                     <div class="priority-item">
                         <div class="priority-name">
                             <span class="priority-dot low"></span>
                             <span>Low Priority</span>
                         </div>
-
                         <div class="priority-count">
                             <span id="lowCompleted">0</span> /
                             <span id="lowTotal">0</span>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
     <script src="../js/script.js"></script>
 </body>
-</html> 
+</html>
