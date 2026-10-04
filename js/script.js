@@ -180,6 +180,40 @@ function loadQuoteXHR() {
     xhr.send();
 }
 
+function checkDueTasks() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    const todayDate = `${year}-${month}-${day}`;
+    console.log("Today:", todayDate);
+    const dueTasks = tasks.filter(function(task) {
+        return task.dueDate === todayDate && !task.completed;
+    });
+    console.log("Due tasks:", dueTasks);
+    if (dueTasks.length === 0) {
+        return;
+    }
+    navigator.serviceWorker.ready.then(function(registration) {
+        dueTasks.forEach(function(task) {
+            const notifiedTasks =
+                JSON.parse(localStorage.getItem("waymark_notified_tasks")) || [];
+            if (notifiedTasks.includes(task.id)) {
+                return;
+            }
+            registration.active.postMessage({
+                type: "taskDue",
+                title: task.title
+            });
+            notifiedTasks.push(task.id);
+            localStorage.setItem(
+                "waymark_notified_tasks",
+                JSON.stringify(notifiedTasks)
+            );
+        });
+    });
+}
+
 window.addEventListener("DOMContentLoaded", function () {
 
     loadTasks();
@@ -187,9 +221,20 @@ window.addEventListener("DOMContentLoaded", function () {
     updatePriorityCounts();
     updateDashboardCards();
     loadQuoteXHR();
+    checkDueTasks();
 
     document.getElementById("addTaskBtn").addEventListener("click", showTaskForm);
     document.getElementById("saveTaskBtn").addEventListener("click", addTask);
     document.getElementById("cancelTaskBtn").addEventListener("click", hideTaskForm);
 
 });
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("../serviceWorker.js")
+        .then(function() {
+            console.log("Service Worker registered");
+        })
+        .catch(function(error) {
+            console.log("Service Worker registration failed:", error);
+        });
+}

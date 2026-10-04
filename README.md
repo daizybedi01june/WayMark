@@ -112,6 +112,7 @@ The project will be developed incrementally and updated throughout the project t
 - Added a notes section where users can create and delete notes using a simple form.
 - Used a Web Worker to process notes in the background without blocking the main page.
 - Made functional tasks filtering page
+- Added reminder notifications using service worker.
 
 ---
 
