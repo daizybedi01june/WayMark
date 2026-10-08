@@ -189,7 +189,6 @@ if (notificationButton) {
         const permission = await Notification.requestPermission();
 
         if (permission === "granted") {
-            notificationButton.style.display = "none";
             console.log("Notifications enabled");
         }
     });
