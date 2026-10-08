@@ -180,6 +180,21 @@ function loadQuoteXHR() {
     xhr.send();
 }
 
+const notificationButton = document.getElementById("enableNotifications");
+if (notificationButton) {
+    if (Notification.permission === "granted") {
+        notificationButton.style.display = "none";
+    }
+    notificationButton.addEventListener("click", async () => {
+        const permission = await Notification.requestPermission();
+
+        if (permission === "granted") {
+            notificationButton.style.display = "none";
+            console.log("Notifications enabled");
+        }
+    });
+}
+
 function checkDueTasks() {
     const today = new Date();
     const year = today.getFullYear();
