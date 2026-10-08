@@ -230,7 +230,7 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("../serviceWorker.js")
+    navigator.serviceWorker.register("/serviceWorker.js")
         .then(function() {
             console.log("Service Worker registered");
         })
