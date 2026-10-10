@@ -354,3 +354,86 @@ footer p {
         text-align: center;
     }
 }
+
+.calendarbox,
+.notesbox,
+.tasks-full-width {
+    width: calc(100% - 120px);
+    max-width: 100%;
+    min-width: 0;
+}
+
+.tasks-full-width .taskbox {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .calendarbox,
+    .notesbox,
+    .tasks-full-width {
+        width: calc(100% - 50px);
+        margin-left: 25px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .calendarbox,
+    .notesbox,
+    .tasks-full-width {
+        width: calc(100% - 50px);
+        margin-left: 25px;
+    }
+
+    #selectedDate {
+        max-width: 100%;
+    }
+
+    #taskListContainer,
+    #calendarTasks {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .calendarbox,
+    .notesbox,
+    .tasks-full-width {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 15px;
+    }
+
+    .calendarboxhead {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .tasks-full-width .taskbox {
+        padding: 15px;
+    }
+
+    #searchTask {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #filterTask,
+    #sortTask {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .calendarbox,
+    .notesbox,
+    .tasks-full-width {
+        width: calc(100% - 30px);
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 12px;
+    }
+}
