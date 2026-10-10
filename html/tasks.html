@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,19 +10,19 @@
 <body>
     <div class="combined">
         <div class="sidebar">
-            <div style="margin-top:30px;margin-left:30px;display:flex;align-items:center;gap:10px">
-                <div style="color:white;font-weight:800;border-radius:10px;display:flex;justify-content:center;align-items:center;height:40px;width:40px;background-color:rgb(105,105,197);">W</div>
-                <p style="font-weight:bolder;">WayMark</p>
+            <div class="brand">
+                <div class="brand-logo">W</div>
+                <p>WayMark</p>
             </div>
-            <div style="margin-top:60px;margin-left:30px;color:gray;">
-                <p style="font-size:x-small;">WORKSPACE</p>
-                <p>⌂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/dashboard.html">Home</a></p>
+            <div class="sidebar-links">
+                <p class="sidebar-label">WORKSPACE</p>
+                <p>⌂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/dashboard.html">Home</a></p>
                 <p>✓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/calendar.html">Calendar</a></p>
                 <p>◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/tasks.html">Tasks</a></p>
                 <p>▣&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/notes.html">Notes</a></p>
             </div>
-            <div style="margin-top:100px;margin-left:30px;color:gray">
-                <p style="font-size:x-small;">NOTIFICATIONS</p>
+            <div class="sidebar-notifications">
+                <p class="sidebar-label">NOTIFICATIONS</p>
                 <a href="#" id="enableNotifications">◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enable Notifications</a>
             </div>
         </div>
@@ -30,7 +31,7 @@
                 <h1>My Tasks</h1>
                 <p>Manage and organize all your tasks</p>
             </div>
-            <div class="notesbox">
+            <div class="notesbox tasks-page-box">
                 <div class="notesboxhead">
                     <div>
                         <h2>All Tasks</h2>
@@ -39,42 +40,44 @@
                     <button id="addTaskBtn">+ Add Task</button>
                 </div>
                 <hr>
-                <div style="display:flex;gap:10px;margin-top:15px;margin-bottom:15px;">
-                    <input type="text" id="searchTask" placeholder="Search tasks..." style="flex:1;padding:8px;border:1px solid #ccc;border-radius:5px;">
-                    <select id="filterTask" style="padding:8px;border:1px solid #ccc;border-radius:5px;">
+                <div class="task-controls">
+                    <input type="text" id="searchTask" placeholder="Search tasks...">
+                    <select id="filterTask">
                         <option value="all">All</option>
                         <option value="pending">Pending</option>
                         <option value="completed">Completed</option>
                         <option value="high">High Priority</option>
                     </select>
-                    <select id="sortTask" style="padding:8px;border:1px solid #ccc;border-radius:5px;">
+                    <select id="sortTask">
                         <option value="date">Due Date</option>
                         <option value="name">Name</option>
                         <option value="priority">Priority</option>
                     </select>
                 </div>
-                <div id="taskListContainer" style="display:flex;flex-direction:column;gap:8px;">
+                <div id="taskListContainer" class="task-list">
                     <div id="noTasksMsg">No Tasks Planned!</div>
                 </div>
-                <div id="taskForm" style="display:none;margin-top:15px;padding:15px;border:1px solid #ddd;border-radius:5px;background-color:white;">
-                    <div style="margin-bottom:10px;">
-                        <label>Task Name</label>
-                        <input type="text" id="taskTitle" placeholder="Enter task name" style="width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:5px;">
+                <div id="taskForm" class="task-form" style="display:none;">
+                    <div class="task-form-field">
+                        <label for="taskTitle">Task Name</label>
+                        <input type="text" id="taskTitle" placeholder="Enter task name">
                     </div>
-                    <div style="margin-bottom:10px;">
-                        <label>Priority</label>
-                        <select id="taskPriority" style="width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:5px;">
+                    <div class="task-form-field">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority">
                             <option value="High">High</option>
                             <option value="Medium">Medium</option>
                             <option value="Low">Low</option>
                         </select>
                     </div>
-                    <div style="margin-bottom:10px;">
-                        <label>Due Date</label>
-                        <input type="date" id="taskDueDate" style="width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:5px;">
+                    <div class="task-form-field">
+                        <label for="taskDueDate">Due Date</label>
+                        <input type="date" id="taskDueDate">
                     </div>
-                    <button id="saveTaskBtn" style="padding:7px 12px;border-radius:5px;border:1px solid #ccc;background:white;color:rgb(105,105,197);">Add Task</button>
-                    <button id="cancelTaskBtn" style="padding:7px 12px;border-radius:5px;border:1px solid #ccc;background:white;margin-left:5px;">Cancel</button>
+                    <div class="task-form-buttons">
+                        <button id="saveTaskBtn">Add Task</button>
+                        <button id="cancelTaskBtn">Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>

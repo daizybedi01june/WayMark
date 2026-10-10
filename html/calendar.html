@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,34 +10,34 @@
 <body>
     <div class="combined">
         <div class="sidebar">
-            <div style="margin-top:30px;margin-left:30px;display:flex;align-items:center;gap:10px">
-                <div style="color:white;font-weight:800;border-radius:10px;display:flex;justify-content:center;align-items:center;height:40px;width:40px;background-color:rgb(105,105,197);">W</div>
-                <p style="font-weight:bolder;">WayMark</p>
+            <div class="brand">
+                <div class="brand-logo">W</div>
+                <p>WayMark</p>
             </div>
-            <div style="margin-top:60px;margin-left:30px;color:gray;">
-                <p style="font-size:x-small;">WORKSPACE</p>
+            <div class="sidebar-links">
+                <p class="sidebar-label">WORKSPACE</p>
                 <p>⌂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/dashboard.html">Home</a></p>
-                <p>✓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/calendar.html">Calendar</a></p>
-                <p>◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/tasks.html">Tasks</a></p>
-                <p>▣&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/notes.html">Notes</a></p>
+                <p>✓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/calendar.html">Calendar</a></p>
+                <p>◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/tasks.html">Tasks</a></p>
+                <p>▣&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/html/notes.html">Notes</a></p>
             </div>
-            <div style="margin-top:100px;margin-left:30px;color:gray">
-                <p style="font-size:x-small;">NOTIFICATIONS</p>
-                <a href="#" id="enableNotifications">◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enable Notifications</a>
+            <div class="sidebar-notifications">
+                <p class="sidebar-label">NOTIFICATIONS</p>
+                <a href="#" id="enableNotifications">◷&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enable Notifications</a>
             </div>
         </div>
         <div class="mainpage">
-            <div style="margin-top:50px;margin-left:40px;line-height:5px;">
-                <h1 style="color:rgb(82,82,153)">Task Calendar</h1>
-                <p style="color:gray">View your upcoming tasks by date</p>
+            <div class="calendar-heading">
+                <h1>Task Calendar</h1>
+                <p>View your upcoming tasks by date</p>
             </div>
             <div class="calendarbox">
                 <div class="calendarboxhead">
                     <div>
-                        <p style="font-weight:bolder;font-size:large;color:rgb(82,82,153)">Upcoming Tasks</p>
-                        <p style="color:gray;font-size:small;">Select a date to view your planned tasks</p>
+                        <p class="calendar-title">Upcoming Tasks</p>
+                        <p class="calendar-subtitle">Select a date to view your planned tasks</p>
                     </div>
-                    <div>
+                    <div class="calendar-date">
                         <input type="date" id="selectedDate">
                     </div>
                 </div>
